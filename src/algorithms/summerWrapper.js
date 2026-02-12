@@ -1,3 +1,5 @@
+import { resolvePublicPath } from '../utils/basePath.js';
+
 // Load summer from public folder
 let isLoaded = false;
 
@@ -8,7 +10,7 @@ function loadSummer() {
       return;
     }
     const script = document.createElement('script');
-    script.src = '/summer.min.js';
+    script.src = resolvePublicPath('summer.min.js');
     script.onload = () => resolve();
     script.onerror = () => reject(new Error('Failed to load Summer'));
     document.head.appendChild(script);

@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { resolvePublicPath } from '../utils/basePath.js';
 
 // Make lodash available globally for js-summarize with compatibility shims
 window._ = _;
@@ -26,11 +27,11 @@ function loadJsSummarize() {
     
     // Load tokenizer first
     const tokenizerScript = document.createElement('script');
-    tokenizerScript.src = '/lib/tokenizer/tokenizer.js';
+    tokenizerScript.src = resolvePublicPath('lib/tokenizer/tokenizer.js');
     tokenizerScript.onload = () => {
       // Then load js-summarize
       const summarizeScript = document.createElement('script');
-      summarizeScript.src = '/js-summarize.js';
+      summarizeScript.src = resolvePublicPath('js-summarize.js');
       summarizeScript.onload = () => resolve();
       summarizeScript.onerror = () => reject(new Error('Failed to load JS Summarize'));
       document.head.appendChild(summarizeScript);
