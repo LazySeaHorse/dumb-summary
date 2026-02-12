@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [preact(), tailwindcss()],
+  base: process.env.GITHUB_ACTIONS ? '/text-summarizer-playground/' : '/',
   optimizeDeps: {
     exclude: ['node-summary']
   },

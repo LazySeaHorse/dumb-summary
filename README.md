@@ -1,10 +1,9 @@
 # Text Summarization Playground
 
-A modern, Jupyter-like interface for comparing non-AI text summarization algorithms side-by-side. Built with Vite, Preact, and Tailwind CSS v4.
+A comparison of non-AI text summarization algorithms side-by-side. Built with Vite, Preact, and Tailwind CSS v4.
 
 ## Features
 
-- **Clean, Modern UI**: Inspired by Jupyter notebooks with a contemporary, responsive design
 - **Multiple Algorithms**: Compare different summarization approaches simultaneously
 - **Interactive Parameter Controls**: Adjust algorithm parameters in real-time with sliders and dropdowns
 - **Individual & Batch Processing**: Run algorithms individually or all at once
@@ -78,6 +77,27 @@ Open your browser to the URL shown (typically http://localhost:5173)
 npm run build
 npm run preview
 ```
+
+## Deployment
+
+### GitHub Pages
+
+This project includes a GitHub Actions workflow for automatic deployment to GitHub Pages.
+
+**Setup:**
+
+1. Push your code to GitHub
+2. Go to your repository Settings → Pages
+3. Under "Build and deployment", select "GitHub Actions" as the source
+4. Push to the `main` branch to trigger deployment
+
+**Important**: Update the `base` path in `vite.config.js` to match your repository name:
+
+```javascript
+base: process.env.GITHUB_ACTIONS ? '/your-repo-name/' : '/',
+```
+
+The site will be available at: `https://yourusername.github.io/your-repo-name/`
 
 ## Usage
 
